@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIDAN RIFALDI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .about img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-right: 2rem;
+        }
+
+        .about div {
+            display: flex;
+            align-items: center;
+        }
+
+        .projects .project {
+            margin-bottom: 1rem;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .project h3 {
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .about div {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about img {
+                margin: 0 0 1rem 0;
+            }
+
+            .projects .project {
+                text-align: center;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    sections.forEach(section => section.classList.remove('active'));
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const targetSection = document.querySelector(this.getAttribute('href'));
+                    targetSection.classList.add('active');
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>ZIDAN RIFALDI</h1>
+        <nav>
+            <a href="#about" class="active">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="about" class="section active">
+            <h2>About Me</h2>
+            <div>
+                <img src="foto-saya17.jpg.jpg" alt="Your Photo">
+                <p>Hello! I'm a web developer with a passion for creating beautiful and functional websites. I have
+                    experience in HTML, CSS, JavaScript, and various web development frameworks.</p>
+            </div>
+        </section>
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="project">
+                <img src="foto-saya13.jpg.jpg" alt="Project One">
+                <h3>Project One</h3>
+                <p>Nama saya ZIDAN Rifaldi.</p>
+            </div>
+            <div class="project">
+                <img src="foto-saya14.jpg.jpg" alt="Project Two">
+                <h3>Project Two</h3>
+                <p>Saya adalah mahasiswa dari salah satu institut yang ada di Medan.</p>
+            </div>
+            <div class="project">
+                <img src="foto-saya15.jpg.jpg" alt="Project Three">
+                <h3>Project Three</h3>
+                <p>Saya dari prodi bisnis digital.</p>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p>You can reach me at <a href="mailto:email@example.com">zrifaldi@gmail.com</a>.</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
+</body>
+
+</html>
